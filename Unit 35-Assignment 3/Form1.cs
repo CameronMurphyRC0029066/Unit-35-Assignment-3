@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Unit_35_Assignment_3
 {
@@ -96,6 +97,16 @@ namespace Unit_35_Assignment_3
                     MessageBox.Show(openFileDialog1.FileName + "Rows have the same value.");
                 }
 
+
+            }
+        }
+
+        private void altitudeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            chart1.Series.Clear();
+            chart1.ChartAreas[0].AxisX.IsMarginVisible = false;
+            series series = new series
+            {
 
             }
         }
