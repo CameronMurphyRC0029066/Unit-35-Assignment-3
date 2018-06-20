@@ -15,8 +15,12 @@ namespace Unit_35_Assignment_3
     {
         class row
         {
-          public  Double time;
-          public Double altimeter;
+            public double time;
+            public double altimeter;
+            public double Velocity;
+            public double accleration;
+            public double altitude;
+
         }
 
         List<row> table = new List<row>();
@@ -24,6 +28,30 @@ namespace Unit_35_Assignment_3
         {
             InitializeComponent();
         }
+
+        private void calculateVelocity()
+        {
+            for (int i = 1; 1 < table.Count; i++)
+            {
+                double dh = table[i].altitude - table[i - 1].altitude;
+                double dt = table[i].time - table[i - 1].time;
+                table[i].Velocity = dh / dt;
+            }
+
+        }
+
+        private void calculateAcceleration()
+        {
+            for (int i = 1; 1 < table.Count; i++)
+            {
+                double dv = table[i].Velocity - table[i - 1].Velocity;
+                double dt = table[i].time - table[i - 1].time;
+                table[i].Velocity = dv / dt;
+            }
+        }
+
+
+
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -48,7 +76,8 @@ namespace Unit_35_Assignment_3
 
 
                     }
-
+                    calculateVelocity();
+                    calculateAcceleration();
                 }
                 catch (IOException)
                 {
@@ -62,6 +91,12 @@ namespace Unit_35_Assignment_3
                 {
                     MessageBox.Show(openFileDialog1.FileName + "Incorrect Format.");
                 }
+                catch (DivideByZeroException)
+                {
+                    MessageBox.Show(openFileDialog1.FileName + "Rows have the same value.");
+                }
+
+
             }
         }
     }
