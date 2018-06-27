@@ -28,6 +28,7 @@ namespace Unit_35_Assignment_3
         public Form1()
         {
             InitializeComponent();
+            chart1.Series.Clear();
         }
 
         private void calculateVelocity()
@@ -105,10 +106,29 @@ namespace Unit_35_Assignment_3
         {
             chart1.Series.Clear();
             chart1.ChartAreas[0].AxisX.IsMarginVisible = false;
-            series series = new series
+            Series series = new Series
             {
+                Name = "altitude",
+                Color = Color.Blue,
+                IsVisibleInLegend = false,
+                IsXValueIndexed = true,
+                ChartType = SeriesChartType.Spline,
+                BorderWidth = 2
+            };
+            chart1.Series.Add(series);
+            foreach(row r in table.Skip(1))
+            {
+                series.Points.AddXY(r.time, r.altitude);
+            }
+            chart1.ChartAreas[0].AxisX.Title = "time /s";
+            chart1.ChartAreas[0].AxisY.Title = "Altitude /m";
+            chart1.ChartAreas[0].RecalculateAxesScale();
+
+        
+
+
 
             }
         }
     }
-}
+
