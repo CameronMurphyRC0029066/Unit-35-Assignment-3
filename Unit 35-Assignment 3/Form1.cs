@@ -116,7 +116,7 @@ namespace Unit_35_Assignment_3
                 BorderWidth = 2
             };
             chart1.Series.Add(series);
-            foreach(row r in table.Skip(1))
+            foreach (row r in table.Skip(1))
             {
                 series.Points.AddXY(r.time, r.altitude);
             }
@@ -124,11 +124,37 @@ namespace Unit_35_Assignment_3
             chart1.ChartAreas[0].AxisY.Title = "Altitude /m";
             chart1.ChartAreas[0].RecalculateAxesScale();
 
-        
 
 
 
+
+        }
+
+        private void saveCSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.FileName = "";
+            saveFileDialog1.Filter = "csv files|*.csv";
+            DialogResult results = saveFileDialog1.ShowDialog();
+            if (results == DialogResult.OK)
+            {
+                try
+                {
+                    using (StreamWriter sw = new StreamWriter(saveFileDialog1.FileName))
+                    {
+                        sw.WriteLine("time /s, altitude /m, accelaration /ms, velocity /v");
+                    }
+                }
             }
+
+
+
+
+
+
+
         }
     }
+}
+
+    
 
