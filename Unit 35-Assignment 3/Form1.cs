@@ -159,6 +159,68 @@ namespace Unit_35_Assignment_3
 
 
         }
+
+        private void velocityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+                chart1.Series.Clear();
+                chart1.ChartAreas[0].AxisX.IsMarginVisible = false;
+                Series series = new Series
+                {
+                    Name = "altitude",
+                    Color = Color.Blue,
+                    IsVisibleInLegend = false,
+                    IsXValueIndexed = true,
+                    ChartType = SeriesChartType.Spline,
+                    BorderWidth = 2
+                };
+                chart1.Series.Add(series);
+                foreach (row r in table.Skip(1))
+                {
+                    series.Points.AddXY(r.time, r.altitude);
+                }
+                chart1.ChartAreas[0].AxisX.Title = "time /s";
+                chart1.ChartAreas[0].AxisY.Title = "Altitude /m";
+                chart1.ChartAreas[0].RecalculateAxesScale();
+
+
+
+
+
+            }
+
+        }
+
+        private void accelerationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            {
+                chart1.Series.Clear();
+                chart1.ChartAreas[0].AxisX.IsMarginVisible = false;
+                Series series = new Series
+                {
+                    Name = "altitude",
+                    Color = Color.Blue,
+                    IsVisibleInLegend = false,
+                    IsXValueIndexed = true,
+                    ChartType = SeriesChartType.Spline,
+                    BorderWidth = 2
+                };
+                chart1.Series.Add(series);
+                foreach (row r in table.Skip(1))
+                {
+                    series.Points.AddXY(r.time, r.altitude);
+                }
+                chart1.ChartAreas[0].AxisX.Title = "time /s";
+                chart1.ChartAreas[0].AxisY.Title = "Altitude /m";
+                chart1.ChartAreas[0].RecalculateAxesScale();
+
+
+
+
+
+            }
+
+        }
     }
 }
 
