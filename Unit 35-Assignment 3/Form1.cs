@@ -142,7 +142,13 @@ namespace Unit_35_Assignment_3
                     using (StreamWriter sw = new StreamWriter(saveFileDialog1.FileName))
                     {
                         sw.WriteLine("time /s, altitude /m, accelaration /ms, velocity /v");
+                        foreach (row r in table) ;
                     }
+                }  
+                catch
+                {
+                    MessageBox.Show(saveFileDialog1.FileName + "Failed to save");
+                        
                 }
             }
 
