@@ -30,6 +30,7 @@ namespace Unit_35_Assignment_3
             chart1.Series.Clear();
         }
 
+        // Calculates velocity
         private void calculateVelocity()
         {
             for (int i = 1; i < table.Count; i++)
@@ -40,7 +41,7 @@ namespace Unit_35_Assignment_3
             }
 
         }
-
+        //Calculates acceleration
         private void calculateAcceleration()
         {
             for (int i = 1; i < table.Count; i++)
@@ -53,7 +54,7 @@ namespace Unit_35_Assignment_3
 
 
 
-
+        //This allows the user to open CSV files
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog1.FileName = "";
@@ -75,7 +76,7 @@ namespace Unit_35_Assignment_3
                         }
 
 
-
+                        //This prevents any user faults
                     }
                     calculateVelocity();
                     calculateAcceleration();
@@ -100,7 +101,7 @@ namespace Unit_35_Assignment_3
 
             }
         }
-
+        //Draws altitude graph from CSV file
         private void altitudeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             chart1.Series.Clear();
@@ -128,7 +129,7 @@ namespace Unit_35_Assignment_3
 
 
         }
-
+        //Saves CSV files
         private void saveCSVToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.FileName = "";
@@ -158,7 +159,7 @@ namespace Unit_35_Assignment_3
 
 
         }
-
+        //Draws velocity graph from CSV file.
         private void velocityToolStripMenuItem_Click(object sender, EventArgs e)
         {
             {
@@ -189,7 +190,7 @@ namespace Unit_35_Assignment_3
             }
 
         }
-
+        //Draws acceleration graph from CSV file
         private void accelerationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             {
